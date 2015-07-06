@@ -17,12 +17,11 @@
             mapped on server and alert to provide error response
         -->
 
-        <div class="col-md-6" style="margin: auto; margin-top: 50px;">
+        <div style="margin: auto; margin-top: 50px; width: 50%;">
 
             <!-- Alert to provide response from WebBean -->
             <sm:alert id="login-error">
-
-                <!-- Title and message will be added via WebContext on LoginBean -->
+                <!-- Icon, title and message will be added via WebContext on LoginBean -->
             </sm:alert>
 
             <sm:form>
@@ -43,14 +42,14 @@
 
                 <!-- Password to be sent to server side -->
                 <sm:input label="@{texts.aa.archetype.password}" value="@{loginBean.password}"
-                        placeHolder="@{texts.aa.archetype.password.placeholder}">
+                        type="password" placeHolder="@{texts.aa.archetype.password.placeholder}">
 
                     <!-- Validate the input before sending to server -->
                     <sm:validate text="@{texts.aa.archetype.password.required}" minLength="5" />
                 </sm:input>
 
-                <sm:button id="login-btn" ajax="true" label="@{texts.aa.archetype.do.login}"
-                        action="@{loginBean.doLogin}">
+                <sm:button id="login-btn" ajax="true" label="@{texts.aa.archetype.login}"
+                        action="@{loginBean.doLogin}" look="primary">
 
                     <!-- Glyphicon to be placed inside button -->
                     <sm:icon name="glyphicon-log-in" />
@@ -60,9 +59,7 @@
                 </sm:button>
 
             </sm:form>
-
         </div>
 
     </body>
-
 </html>

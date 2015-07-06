@@ -5,14 +5,14 @@ import com.jsmart5.framework.annotation.AuthenticateBean;
 import com.jsmart5.framework.annotation.AuthenticateField;
 import com.jsmart5.framework.annotation.AuthorizeAccess;
 
+import java.io.Serializable;
 import java.util.List;
-import java.util.ArrayList;
 
 import ${package}.service.SpringService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @AuthenticateBean(loginPath="/login", homePath="/home")
-public class AuthBean {
+public class AuthBean implements Serializable {
 
     @AuthenticateField
     private String email;
@@ -37,5 +37,9 @@ public class AuthBean {
         name = null;
         roles = null;
         WebContext.invalidate();
+    }
+
+    public String getName() {
+        return name;
     }
 }

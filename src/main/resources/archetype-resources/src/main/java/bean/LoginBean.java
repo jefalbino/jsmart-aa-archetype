@@ -1,17 +1,18 @@
 package ${package}.bean;
 
+import com.jsmart5.framework.util.WebAlert;
 import com.jsmart5.framework.util.WebText;
 import com.jsmart5.framework.manager.WebContext;
 import com.jsmart5.framework.annotation.WebBean;
 import com.jsmart5.framework.annotation.PreSubmit;
 
-import java.util.Map;
-import java.util.HashMap;
-
+import org.apache.commons.lang.StringUtils;
 import ${package}.auth.AuthBean;
 
 import ${package}.service.SpringService;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.inject.Inject;
 
 @WebBean
 public class LoginBean {
@@ -30,20 +31,34 @@ public class LoginBean {
     public boolean preLogin() {
         boolean validated = true;
 
-        if (email == null || email.trim().isEmpty()) {
-            //WebAlert alert = new WebAlert()
-            //WebContext.addError("login-error", WebText.getString("texts", "basic.archetype.action.failure", inputValue));
+        if (StringUtils.isBlank(email)) {
+            WebContext.addAlert("login-error", getAlert(WebAlert.AlertType.DANGER,
+                    WebText.getString("texts", "aa.archetype.invalid.email", email)));
             validated = false;
         }
-
+        if (StringUtils.isBlank(password)) {
+            WebContext.addAlert("login-error", getAlert(WebAlert.AlertType.DANGER,
+                    WebText.getString("texts", "aa.archetype.invalid.password")));
+            validated = false;
+        }
         return validated;
     }
 
     public String doLogin() {
+        String userName = springService.getUser(email, password);
 
+        if (userName != null) {
+            authBean.doAuth(userName, email);
 
-        return "/home";
+            // Redirect to Home case login succeed
+            return "/home";
+        }
 
+        WebContext.addAlert("login-error", getAlert(WebAlert.AlertType.WARNING,
+                WebText.getString("texts", "aa.archetype.invalid.login",
+                        SpringService.ADMIN_EMAIL, SpringService.USER_EMAIL)));
+
+        // Return null to stay in the same page
         return null;
     }
 
@@ -61,5 +76,13 @@ public class LoginBean {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    private WebAlert getAlert(WebAlert.AlertType type, String message) {
+        WebAlert alert = new WebAlert(type);
+        alert.setTitleIcon("glyphicon-fire");
+        alert.setTitle(WebText.getString("texts", "aa.archetype.server.error"));
+        alert.setMessage(message);
+        return alert;
     }
 }
