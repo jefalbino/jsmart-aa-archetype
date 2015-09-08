@@ -29,7 +29,7 @@
 
                 <!-- Email to be sent to server side -->
                 <sm:input label="@{texts.aa.archetype.email}" value="@{loginBean.email}"
-                        placeHolder="@{texts.aa.archetype.email.placeholder}">
+                        placeholder="@{texts.aa.archetype.email.placeholder}">
 
                     <!-- Validate the input before sending to server -->
                     <sm:validate text="@{texts.aa.archetype.email.required}" regex="" />
@@ -42,7 +42,7 @@
 
                 <!-- Password to be sent to server side -->
                 <sm:input label="@{texts.aa.archetype.password}" value="@{loginBean.password}"
-                        type="password" placeHolder="@{texts.aa.archetype.password.placeholder}">
+                        type="password" placeholder="@{texts.aa.archetype.password.placeholder}">
 
                     <!-- Validate the input before sending to server -->
                     <sm:validate text="@{texts.aa.archetype.password.required}" minLength="5" />
