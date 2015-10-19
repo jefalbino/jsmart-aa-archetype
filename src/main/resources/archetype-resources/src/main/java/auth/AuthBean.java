@@ -1,9 +1,9 @@
 package ${package}.auth;
 
 import com.jsmart5.framework.manager.WebContext;
-import com.jsmart5.framework.annotation.AuthenticateBean;
-import com.jsmart5.framework.annotation.AuthenticateField;
-import com.jsmart5.framework.annotation.AuthorizeAccess;
+import com.jsmart5.framework.annotation.AuthBean;
+import com.jsmart5.framework.annotation.AuthField;
+import com.jsmart5.framework.annotation.AuthAccess;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,16 +11,16 @@ import java.util.List;
 import ${package}.service.SpringService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@AuthenticateBean(loginPath="/login", homePath="/home")
+@AuthBean(loginPath="/login", homePath="/home")
 public class AuthBean implements Serializable {
 
-    @AuthenticateField
+    @AuthField
     private String email;
 
-    @AuthenticateField
+    @AuthField
     private String name;
 
-    @AuthorizeAccess
+    @AuthAccess
     private List<String> roles;
 
     @Autowired
