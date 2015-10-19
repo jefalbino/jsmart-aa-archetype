@@ -12,7 +12,7 @@ import ${package}.service.SpringService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @AuthBean(loginPath="/login", homePath="/home")
-public class AuthBean implements Serializable {
+public class MyAuthBean implements Serializable {
 
     @AuthField
     private String email;

@@ -41,7 +41,7 @@
                         </li>
 
                         <!-- Dropdown actions for menu -->
-                        <sm:dropdown label="@{authBean.name}" navbar="true">
+                        <sm:dropdown label="@{myAuthBean.name}" navbar="true">
                             <sm:icon name="glyphicon-user" />
 
                             <sm:dropmenu>

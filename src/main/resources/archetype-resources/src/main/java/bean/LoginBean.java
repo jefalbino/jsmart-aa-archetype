@@ -7,7 +7,7 @@ import com.jsmart5.framework.annotation.WebBean;
 import com.jsmart5.framework.annotation.PreSubmit;
 
 import org.apache.commons.lang.StringUtils;
-import ${package}.auth.AuthBean;
+import ${package}.auth.MyAuthBean;
 
 import ${package}.service.SpringService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class LoginBean {
     private SpringService springService;
 
     @Inject
-    private AuthBean authBean;
+    private MyAuthBean myAuthBean;
 
     private String email;
 
@@ -48,7 +48,7 @@ public class LoginBean {
         String userName = springService.getUser(email, password);
 
         if (userName != null) {
-            authBean.doAuth(userName, email);
+            myAuthBean.doAuth(userName, email);
 
             // Redirect to Home case login succeed
             return "/home";

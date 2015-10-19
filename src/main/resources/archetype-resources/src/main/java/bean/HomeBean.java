@@ -2,7 +2,7 @@ package ${package}.bean;
 
 import com.jsmart5.framework.annotation.WebBean;
 
-import ${package}.auth.AuthBean;
+import ${package}.auth.MyAuthBean;
 import ${package}.service.SpringService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -15,10 +15,10 @@ public class HomeBean {
     private SpringService springService;
 
     @Inject
-    private AuthBean authBean;
+    private MyAuthBean myAuthBean;
 
     public String doLogout() {
-        authBean.invalidateAuth();
+        myAuthBean.invalidateAuth();
         return "/login";
     }
 
