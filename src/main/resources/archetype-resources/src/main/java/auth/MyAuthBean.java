@@ -1,9 +1,9 @@
 package ${package}.auth;
 
-import com.jsmart5.framework.manager.WebContext;
-import com.jsmart5.framework.annotation.AuthBean;
-import com.jsmart5.framework.annotation.AuthField;
-import com.jsmart5.framework.annotation.AuthAccess;
+import com.jsmartframework.web.manager.WebContext;
+import com.jsmartframework.web.annotation.AuthBean;
+import com.jsmartframework.web.annotation.AuthField;
+import com.jsmartframework.web.annotation.AuthAccess;
 
 import java.io.Serializable;
 import java.util.List;

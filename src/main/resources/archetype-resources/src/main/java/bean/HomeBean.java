@@ -1,6 +1,6 @@
 package ${package}.bean;
 
-import com.jsmart5.framework.annotation.WebBean;
+import com.jsmartframework.web.annotation.WebBean;
 
 import ${package}.auth.MyAuthBean;
 import ${package}.service.SpringService;
