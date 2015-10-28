@@ -27,7 +27,7 @@ public class LoginBean {
 
     private String password;
 
-    @PreSubmit(forAction = "doLogin")
+    @PreSubmit(onActions = {"doLogin"})
     public boolean preLogin() {
         boolean validated = true;
 

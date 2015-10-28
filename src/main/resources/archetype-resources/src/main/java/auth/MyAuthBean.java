@@ -14,10 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 @AuthBean(loginPath="/login", homePath="/home")
 public class MyAuthBean implements Serializable {
 
-    @AuthField
+    @AuthField("email")
     private String email;
 
-    @AuthField
+    @AuthField("name")
     private String name;
 
     @AuthAccess
