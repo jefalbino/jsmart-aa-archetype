@@ -13,10 +13,12 @@ public class SpringService {
     public static final String USER_EMAIL = "user@user.com";
 
     public List<String> getUserRoles(String name) {
-        List<String> roles = new ArrayList<String>();
-        roles.add("user");
-        if (name.contains("Administrator")) {
-            roles.add("admin");
+        List<String> roles = new ArrayList<>();
+        if (name != null) {
+            roles.add("user");
+            if (name.contains("Administrator")) {
+                roles.add("admin");
+            }
         }
         return roles;
     }

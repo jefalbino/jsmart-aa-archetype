@@ -61,5 +61,17 @@
             </sm:form>
         </div>
 
+        <script>
+            $(document).ready(function() {
+                // In case you need to get CSRF token for you own Ajax request
+                // please use the following:
+                // JSmart.getCsrfName();
+                // JSmart.getCsrfToken();
+
+                // For setting the CSRF tokens on your own Ajax request header
+                // please use the following:
+                // JSmart.setCsrfToken(xhr);
+            });
+        </script>
     </body>
 </html>

@@ -7,6 +7,7 @@
         <source>src/main/java/bean/LoginBean.java</source>
         <source>src/main/java/bean/HomeBean.java</source>
         <source>src/main/java/auth/MyAuthBean.java</source>
+        <source>src/main/java/auth/CsrfListener.java</source>
         <source>src/main/java/service/SpringService.java</source>
     </sources>
 
